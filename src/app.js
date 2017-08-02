@@ -10,7 +10,7 @@ var route = require('riot-route/tag');
 
 
 document.addEventListener('DOMContentLoaded', function(){
-
+  route.base('/')
   route( function(page){
         if (page == 'events') {
             riot.mount('main', 'content', {event: events });
