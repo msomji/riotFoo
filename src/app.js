@@ -1,27 +1,20 @@
-require('./tags/navigation.tag');
-require('./tags/content.tag');
-var events = require('./data/eventStore.js');
-var otherEvents = require('./data/othereventStore.js');
-
-
 var riot = require('riot');
-var route = require('riot-route/tag');
+var route = require('riot-route').default
+require("./navigation.tag")
+require("./sample.tag")
 
 
 
-document.addEventListener('DOMContentLoaded', function(){
-  route.base('/')
-  route( function(page){
-        if (page == 'events') {
-            riot.mount('main', 'content', {event: events });
-        } else if (page == "foobar"){
-          riot.mount('main', 'content', {event: otherEvents });
-        }
+document.addEventListener('DOMContentLoaded', function() {
+    route.start();
+
+
+    route('new_place', function(id) {
+        riot.mount('main', 'sample');
     });
-  route.start(true);
-  riot.mount('navigation');
+    route.exec();
 
+    riot.mount('navigation');
+    riot.mount('sample');
 
-
-
-});
+})
