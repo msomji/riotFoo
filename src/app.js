@@ -13,5 +13,9 @@ route('/new_place', function(id) {
 
 route.exec();
 
+route('/', function(id) {
+    window.location.reload();
+});
+
 riot.mount('navigation');
 riot.mount('sample');
