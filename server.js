@@ -1,24 +1,17 @@
 var express = require('express');
 var server = express();
+var route = require('riot-route').default
 
-server.set('view engine', 'ejs');
+server.engine('html', require('ejs').renderFile);
+server.set('view engine', 'html');
+
 server.set('views', __dirname + '/src');
 
 server.use(express.static('src'));
 
 
-
-
-server.get('/', function(req, res) {
-    console.log('we are getting a request on /');
-    res.render('index.html');
-});
-
 server.get('/*', function(req, res) {
-
-    console.log('we are getting a request on /*');
     res.render('index.html');
-
 });
 
 server.listen(3000, function() {

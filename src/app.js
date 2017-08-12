@@ -4,17 +4,14 @@ require("./navigation.tag")
 require("./sample.tag")
 
 
+route.start();
+route.base('/')
 
-document.addEventListener('DOMContentLoaded', function() {
-    route.start();
+route('/new_place', function(id) {
+    riot.mount('main', 'sample');
+});
 
+route.exec();
 
-    route('new_place', function(id) {
-        riot.mount('main', 'sample');
-    });
-    route.exec();
-
-    riot.mount('navigation');
-    riot.mount('sample');
-
-})
+riot.mount('navigation');
+riot.mount('sample');
