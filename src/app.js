@@ -1,10 +1,10 @@
 var riot = require('riot');
 var route = require('riot-route').default
-require("./navigation.tag")
-require("./sample.tag")
-require("./tagone.tag")
-require("./tagtwo.tag")
-require("./tagthree.tag")
+require("../tags/navigation.tag")
+require("../tags/sample.tag")
+require("../tags/tagone.tag")
+require("../tags/tagtwo.tag")
+require("../tags/tagthree.tag")
 
 
 route.start();
